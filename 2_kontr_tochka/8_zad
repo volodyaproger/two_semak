@@ -1,0 +1,30 @@
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Введите строку: ");
+        String str = input.nextLine();
+
+        int upCount = 0;
+        int lowCount = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            if (Character.isUpperCase(str.charAt(i))) {
+                upCount++;
+            } else if (Character.isLowerCase(str.charAt(i))) {
+                lowCount++;
+            }
+        }
+
+        if (upCount > lowCount) {
+            System.out.println(str.toUpperCase());
+        } else if (lowCount > upCount) {
+            System.out.println(str.toLowerCase());
+        } else {
+            System.out.println(str.toLowerCase());
+        }
+    }
+}
