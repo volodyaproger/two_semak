@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Введите первую строку: ");
+        String firstStr = scanner.nextLine().toLowerCase();
+
+        System.out.println("Введите вторую строку: ");
+        String secondStr = scanner.nextLine().toLowerCase();
+
+        boolean isEnd = firstStr.endsWith(secondStr);
+
+        System.out.println(isEnd);
+    }
+}
