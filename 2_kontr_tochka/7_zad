@@ -1,0 +1,37 @@
+import java.util.HashSet;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Read the input string
+        System.out.println("Введите строку:");
+        String input = scanner.nextLine();
+
+        // Create a set to store unique words
+        HashSet<String> uniqueWords = new HashSet<>();
+
+        // Split the input string into words
+        String[] words = input.split(" ");
+
+        // Iterate over the words and add them to the set
+        for (String word : words) {
+            uniqueWords.add(word);
+        }
+
+        // Convert the set of unique words back to a string
+        String output = "";
+        for (String word : uniqueWords) {
+            output += word + " ";
+        }
+
+        // Trim the output string to remove the extra space at the end
+        output = output.trim();
+
+        // Print the output string
+        System.out.println("Строка с удаленными повторяющимися словами:");
+        System.out.println(output);
+    }
+}
