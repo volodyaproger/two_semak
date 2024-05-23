@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Main {
+    private int[] numbers = new int[3];
+
+    public void addNumber(int number) {
+        if (numbers[0] == 0) {
+            numbers[0] = number;
+        } else if (numbers[1] == 0) {
+            numbers[1] = number;
+        } else if (numbers[2] == 0) {
+            numbers[2] = number;
+        } else {
+            int minIndex = 0;
+            for (int i = 1; i < numbers.length; i++) {
+                if (numbers[i] < numbers[minIndex]) {
+                    minIndex = i;
+                }
+            }
+            numbers[minIndex] = number;
+        }
+    }
+
+    public void printNumbers() {
+        for (int number : numbers) {
+            System.out.print(number + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        MemoryCell cell = new MemoryCell();
+
+        while (true) {
+            System.out.println("Введите число: ");
+            int number = scanner.nextInt();
+            cell.addNumber(number);
+            cell.printNumbers();
+        }
+    }
+}
