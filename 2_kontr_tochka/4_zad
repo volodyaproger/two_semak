@@ -2,13 +2,20 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
-        System.out.println("Введите строку:");
-        String inputString = scanner.nextLine();
+        System.out.print("Первое число: ");
+        int chislo1 = input.nextInt();
+        System.out.print("Второе число: ");
+        int chislo2 = input.nextInt();
 
-        String result = inputString.replaceAll("[йуеэоаыяию]", "");
+        int start = Math.min(chislo1, chislo2);
+        int step = start;
 
-        System.out.println(result);
+        System.out.println("Ряд квадратов:");
+        for (int i = 0; i < chislo1; i++) {
+            System.out.println(start * start);
+            start += step;
+        }
     }
 }
