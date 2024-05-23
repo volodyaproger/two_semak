@@ -1,0 +1,29 @@
+import java.util.StringTokenizer;
+
+public class IzmenaTeksta {
+
+    public static String modifyText(String inputText) {
+        StringBuilder modifiedText = new StringBuilder();
+
+        StringTokenizer st = new StringTokenizer(inputText, " .,?!:;");
+
+        while (st.hasMoreTokens()) {
+            String word = st.nextToken();
+
+            if (Character.isLetter(word.charAt(0))) {
+                modifiedText.append(word.substring(1) + word.charAt(0) + "ауч ");
+            } else {
+                modifiedText.append(word + " ");
+            }
+        }
+
+        return modifiedText.toString().trim();
+    }
+
+    public static void main(String[] args) {
+        String inputText = ""; // тут вводим текст который нужно изменить
+        String modifiedText = modifyText(inputText);
+
+        System.out.println(modifiedText);
+    }
+}
