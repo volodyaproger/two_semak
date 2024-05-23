@@ -1,0 +1,30 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class EveryThirdGame {
+
+    public static void main(String[] args) {
+        int numOfPlayers = 11; // количество игроков
+        int startingPlayer = 3; // номер игрока, с которого начинается игра
+
+        List<Integer> players = new ArrayList<>();
+        for (int i = 1; i <= numOfPlayers; i++) {
+            players.add(i);
+        }
+
+        int currentPlayerIndex = startingPlayer - 1;
+        List<Integer> eliminatedPlayers = new ArrayList<>();
+
+        while (players.size() > 1) {
+            currentPlayerIndex = (currentPlayerIndex + 2) % players.size();
+            eliminatedPlayers.add(players.remove(currentPlayerIndex));
+        }
+
+        System.out.println("Список выбывших игроков:");
+        for (int eliminatedPlayer : eliminatedPlayers) {
+            System.out.println(eliminatedPlayer);
+        }
+
+        System.out.println("Победитель: " + players.get(0));
+    }
+}
