@@ -1,0 +1,44 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int[] numbers = {1, 2, 3, 6, 8, 9, 10, 12, 15};
+        List<String> ranges = findRanges(numbers);
+
+        for (String range : ranges) {
+            System.out.println(range);
+        }
+    }
+
+    public static List<String> findRanges(int[] numbers) {
+        List<String> ranges = new ArrayList<>();
+
+        int start = numbers[0];
+        int end = numbers[0];
+
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] - numbers[i-1] == 1) {
+                end = numbers[i];
+            } else {
+                if (start == end) {
+                    ranges.add(String.valueOf(start));
+                } else {
+                    ranges.add(start + "-" + end);
+                }
+
+                start = numbers[i];
+                end = numbers[i];
+            }
+        }
+
+        if (start == end) {
+            ranges.add(String.valueOf(start));
+        } else {
+            ranges.add(start + "-" + end);
+        }
+
+        return ranges;
+    }
+}
